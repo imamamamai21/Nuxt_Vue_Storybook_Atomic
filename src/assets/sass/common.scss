@@ -1,0 +1,32 @@
+// 共通用scss
+
+@media (min-width: 960px) {
+  .container {
+      max-width: none !important;
+  }
+}
+
+.v-data-table { // v-data-tableのデザイン変更
+  .v-data-table-header {
+    background-color: map-get($grey, darken-1);
+    .text-start,
+    .text-center,
+    .text-end {
+      color: white !important;
+    }
+  }
+  .v-data-footer {
+    background-color: map-get($grey, lighten-5);
+  }
+}
+
+.inputFeiled {
+  padding: 0 8px;
+  margin: 8px 0;
+  border: 1px solid map-get($grey, lighten-3);
+  border-radius: 4px;
+  font-size: 12px;
+}
+.inputFeiled:disabled {
+  background-color: map-get($grey, lighten-3);
+}
