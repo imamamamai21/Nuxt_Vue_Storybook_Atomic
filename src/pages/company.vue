@@ -3,7 +3,7 @@
     <v-container grid-list-xl fluid>
       <v-layout row wrap>
         <v-flex sm12>
-          <h3>会社管理</h3>
+          <pageTitle :companyPage="true" />
         </v-flex>
         <v-flex lg6>
           <v-card>
@@ -106,64 +106,68 @@
 </template>
 
 <script>
-  import {Items as TestCompanies} from '@/api/testcompany';
+import pageTitle from '@atoms/pageTitle'
+import {Items as TestCompanies} from '@/api/testcompany';
 
-  export default {
-    data() {
-      return {
-        search: '',
-        valid: true,
-        basic: {
-          selected: [],
-          headers: [
-            {
-              text: 'id',
-              value: 'id'
-            },
-            {
-              text: '会社コード',
-              value: 'company_code'
-            },
-            {
-              text: 'name',
-              value: 'name'
-            }
-          ],
-          items: TestCompanies
-        },
-        formcontents: {
-          name: '',
-          nameRules: [
-            v => !!v || '会社名は必須です。',
-            v => (v && v.length <= 20) || '会社名は20文字以内です。',
-          ],
-          companyCode: '',
-          companyCodeRules: [
-            v => !!v || '会社コードは必須です。',
-            v => (v && v.length <= 10) || '会社コードは10文字以内です。',
-          ],
-          email: '',
-          emailRules: [
-            v => !!v || '担当者メールアドレスは必須です。',
-            v => /.+@.+\..+/.test(v) || 'メールアドレスの形式ではありません。',
-          ],
-          select: null,
-          items: [
-            'ユーザー1',
-            'ユーザー2',
-            'ユーザー3',
-            'ユーザー4',
-          ]
-        }
-      };
-    },
-    methods: {
-      reset () {
-        this.$refs.form.reset()
+export default {
+  components: {
+    pageTitle // Atom
+  },
+  data() {
+    return {
+      search: '',
+      valid: true,
+      basic: {
+        selected: [],
+        headers: [
+          {
+            text: 'id',
+            value: 'id'
+          },
+          {
+            text: '会社コード',
+            value: 'company_code'
+          },
+          {
+            text: 'name',
+            value: 'name'
+          }
+        ],
+        items: TestCompanies
       },
-      resetValidation () {
-        this.$refs.form.resetValidation()
+      formcontents: {
+        name: '',
+        nameRules: [
+          v => !!v || '会社名は必須です。',
+          v => (v && v.length <= 20) || '会社名は20文字以内です。',
+        ],
+        companyCode: '',
+        companyCodeRules: [
+          v => !!v || '会社コードは必須です。',
+          v => (v && v.length <= 10) || '会社コードは10文字以内です。',
+        ],
+        email: '',
+        emailRules: [
+          v => !!v || '担当者メールアドレスは必須です。',
+          v => /.+@.+\..+/.test(v) || 'メールアドレスの形式ではありません。',
+        ],
+        select: null,
+        items: [
+          'ユーザー1',
+          'ユーザー2',
+          'ユーザー3',
+          'ユーザー4',
+        ]
       }
+    };
+  },
+  methods: {
+    reset () {
+      this.$refs.form.reset()
+    },
+    resetValidation () {
+      this.$refs.form.resetValidation()
     }
-  };
+  }
+};
 </script>

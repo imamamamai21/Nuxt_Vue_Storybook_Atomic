@@ -77,7 +77,8 @@
       :fixed="fixed"
       app
     >
-      <span>&copy; 2019</span>
+      <span>&copy; 2020 imamamamai21
+      </span>
     </v-footer>
   </v-app>
 </template>
@@ -95,7 +96,7 @@ export default {
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'Bastille管理'
+      title: 'Nuxt & Vue & Storybook & Atomic design : フロントエンド ベースデザイン'
     }
   }
 }

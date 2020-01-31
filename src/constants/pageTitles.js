@@ -15,7 +15,7 @@ export const PAGE_TITLTE_GROUP = {
 }
 export const PAGE_TITLTE_USER = {
   icon: 'mdi-face',
-  title: 'ユーザ',
+  title: 'ユーザーお試し',
   to: '/user'
 }
 export const PAGE_TITLTE_APPLICATION = {
